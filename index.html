@@ -3,22 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet"  href="assets/css/styles.css" />
     <title>Contáctanos - 2077 Empresa SA</title>
   </head>
-  <body>
+  <body class="page">
 
-    <main>
-      <h1>¡Contáctanos!</h1>
+    <main class="page__main">
+      <h1 class="page__title">Contáctanos!</h1>
 
-      <section>
-        <form action="#" method="POST" novalidate>
+      <section class="contact-card">
+        <form class="contact-card__form" action="#" method="POST" novalidate>
 
           <!-- Nombre completo -->
-          <div>
-            <label for="nombre">Nombre completo</label>
-            <div>
-              <span aria-hidden="true">&#128100;</span>
+          <div class="form-field">
+            <label class="form-field__label" for="nombre">Nombre completo</label>
+            <div class="form-field__input-wrapper">
+              <span class="form-field__icon" aria-hidden="true">&#128100;</span>
               <input
+                class="form-field__input"
                 type="text"
                 id="nombre"
                 name="nombre"
@@ -30,11 +32,12 @@
           </div>
 
           <!-- Correo Electrónico -->
-          <div>
-            <label for="correo">Correo Electrónico</label>
-            <div>
-              <span aria-hidden="true">&#9993;</span>
+          <div class="form-field">
+            <label class="form-field__label" for="correo">Correo Electrónico</label>
+            <div class="form-field__input-wrapper">
+              <span class="form-field__icon" aria-hidden="true">&#9993;</span>
               <input
+                class="form-field__input"
                 type="email"
                 id="correo"
                 name="correo"
@@ -46,11 +49,12 @@
           </div>
 
           <!-- Teléfono -->
-          <div>
-            <label for="telefono">Teléfono</label>
-            <div>
-              <span aria-hidden="true">&#128222;</span>
+          <div class="form-field">
+            <label class="form-field__label" for="telefono">Teléfono</label>
+            <div class="form-field__input-wrapper">
+              <span class="form-field__icon" aria-hidden="true">&#128222;</span>
               <input
+                class="form-field__input"
                 type="tel"
                 id="telefono"
                 name="telefono"
@@ -61,11 +65,12 @@
           </div>
 
           <!-- Asunto -->
-          <div>
-            <label for="asunto">Asunto</label>
-            <div>
-              <span aria-hidden="true">&#9999;</span>
+          <div class="form-field">
+            <label class="form-field__label" for="asunto">Asunto</label>
+            <div class="form-field__input-wrapper">
+              <span class="form-field__icon" aria-hidden="true">&#9999;</span>
               <input
+                class="form-field__input"
                 type="text"
                 id="asunto"
                 name="asunto"
@@ -75,39 +80,40 @@
           </div>
 
           <!-- Mensaje -->
-          <div>
-            <label for="mensaje">Mensaje</label>
+          <div class="form-field">
+            <label class="form-field__label" for="mensaje">Mensaje</label>
             <textarea
+              class="form-field__textarea"
               id="mensaje"
               name="mensaje"
               placeholder="Escriba su mensaje aquí..."
               rows="5"
             ></textarea>
           </div>
-
-          <button type="submit">Enviar</button>
+<link rel="icon" type="image/png" href="favicon.jpeg" />
+          <button class="contact-card__btn" type="submit">Enviar</button>
 
         </form>
       </section>
     </main>
 
-    <footer>
-      <small>2077 Empresa SA</small>
+    <footer class="footer">
+      <small class="footer__brand">2077 Empresa SA</small>
 
-      <nav aria-label="Redes sociales">
-        <ul>
-          <li>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <nav class="footer__social" aria-label="Redes sociales">
+        <ul class="footer__social-list">
+          <li class="footer__social-item">
+            <a class="footer__social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               Instagram
             </a>
           </li>
-          <li>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <li class="footer__social-item">
+            <a class="footer__social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               Facebook
             </a>
           </li>
-          <li>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+          <li class="footer__social-item">
+            <a class="footer__social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
               X
             </a>
           </li>

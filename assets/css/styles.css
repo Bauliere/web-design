@@ -1,37 +1,57 @@
 /* =========================================
-   CSS VARIABLES (Bootstrap 5 tokens)
+   VARIABLES GLOBALES
+   Guardo aquí todos los colores, tamaños y
+   efectos para no repetirlos en todo el CSS.
+   Si quiero cambiar un color, lo cambio aquí
+   y se actualiza en toda la página.
    ========================================= */
 :root {
+  /* La fuente del sitio, usa la del sistema operativo para que cargue rápido */
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
 
-  --color-body-text:    #212529;
-  --color-label:        #495057;
-  --color-placeholder:  #6c757d;
-  --color-border:       #ced4da;
-  --color-border-focus: #86b7fe;
-  --color-bg-page:      #dce3ed;
-  --color-bg-card:      #ffffff;
-  --color-bg-footer:    #c0c7ce;
-  --color-btn:          #4a5568;
-  --color-btn-hover:    #343a40;
-  --color-icon:         #6c757d;
+  /* Colores de texto */
+  --color-body-text:    #212529; /* texto principal, casi negro */
+  --color-label:        #495057; /* texto secundario, gris oscuro */
+  --color-placeholder:  #6c757d; /* texto de ejemplo dentro del input, gris medio */
+
+  /* Colores de bordes e inputs */
+  --color-border:       #ced4da; /* borde normal del input */
+  --color-border-focus: #86b7fe; /* borde azul cuando hago clic en el input */
+
+  /* Colores de fondo */
+  --color-bg-page:      #dce3ed; /* fondo azul-gris de toda la página */
+  --color-bg-card:      #ffffff; /* fondo blanco de la tarjeta del formulario */
+  --color-bg-footer:    #c0c7ce; /* fondo gris del navbar y footer */
+
+  /* Colores del botón Enviar */
+  --color-btn:          #4a5568; /* color normal del botón */
+  --color-btn-hover:    #343a40; /* color más oscuro cuando paso el mouse */
+
+  /* Otros */
+  --color-icon:         #6c757d; /* color de los emojis/íconos dentro del input */
   --color-white:        #ffffff;
-  --color-navbar-link:  #ced4da;
-  --color-accent:       #86b7fe;
+  --color-navbar-link:  #ced4da; /* color de los links en el navbar */
+  --color-accent:       #86b7fe; /* azul clarito para detalles como el punto del logo */
 
-  --border-radius-sm: 0.25rem;
-  --border-radius:    0.375rem;
-  --border-radius-lg: 0.5rem;
+  /* Bordes redondeados */
+  --border-radius-sm: 0.25rem; /* muy poco redondeado */
+  --border-radius:    0.375rem; /* redondeado normal */
+  --border-radius-lg: 0.5rem;  /* más redondeado, para la tarjeta */
 
-  --shadow-card:  0 0.5rem 1rem rgba(0, 0, 0, 0.10);
-  --shadow-focus: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  /* Sombras */
+  --shadow-card:  0 0.5rem 1rem rgba(0, 0, 0, 0.10); /* sombra suave debajo de la tarjeta */
+  --shadow-focus: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); /* aura azul al hacer clic en un input */
 
+  /* Velocidad de las animaciones (hover, focus, etc.) */
   --transition: 0.2s ease-in-out;
 }
 
 /* =========================================
    RESET BASE
+   Quito el margin y padding que los navegadores
+   ponen por defecto. También hago que el padding
+   no agrande los elementos (box-sizing).
    ========================================= */
 *,
 *::before,
@@ -42,7 +62,10 @@
 }
 
 /* =========================================
-   PAGE (body)
+   PAGE — el body
+   Le doy la fuente, el fondo y hago que la página
+   ocupe mínimo toda la pantalla con flex para que
+   el footer siempre quede abajo.
    ========================================= */
 .page {
   font-family: var(--font-sans);
@@ -50,90 +73,103 @@
   line-height: 1.5;
   color: var(--color-body-text);
   background-color: var(--color-bg-page);
-  min-height: 100vh;
+  min-height: 100vh;       /* ocupa toda la altura de la pantalla */
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  /* navbar arriba, main en medio, footer abajo */
 }
 
 /* =========================================
    NAVBAR
+   La barra de arriba. Con sticky se queda
+   pegada al hacer scroll.
    ========================================= */
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* logo a la izquierda, links a la derecha */
   background-color: var(--color-bg-footer);
   padding: 0.65rem 2rem;
-  position: sticky;
+  position: sticky; /* se queda pegada arriba al hacer scroll */
   top: 0;
-  z-index: 100;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
-  flex-wrap: wrap;
+  z-index: 100;     /* se pone encima de todo lo demás */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12); /* sombra sutil abajo del navbar */
+  flex-wrap: wrap;  /* si no cabe todo en una fila, baja a la siguiente */
   gap: 0.5rem;
 }
 
+/* El contenedor del logo + nombre */
 .navbar__brand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.5rem; /* espacio entre el emoji y el nombre */
 }
 
+/* El emoji de laptop */
 .navbar__logo {
   font-size: 1.1rem;
 }
 
+/* El nombre "Bauliere" como link */
 .navbar__name {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--color-body-text);
-  text-decoration: none;
+  text-decoration: none;   /* quito el subrayado de enlace */
   letter-spacing: 0.5px;
 }
 
+/* El puntito después del nombre */
 .navbar__dot {
-  color: var(--color-btn);
+  color: var(--color-btn); /* se pone del color oscuro del botón */
 }
 
+/* La lista de links del navbar */
 .navbar__list {
-  list-style: none;
+  list-style: none; /* quito los puntitos de lista */
   display: flex;
   gap: 1.5rem;
 }
 
+/* Cada link del navbar */
 .navbar__link {
   color: var(--color-label);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
-  transition: color var(--transition);
+  transition: color var(--transition); /* el color cambia suavemente al pasar el mouse */
 }
 
+/* El link cuando paso el mouse encima */
 .navbar__link:hover {
   color: var(--color-body-text);
 }
 
+/* El link de la página donde estoy actualmente */
 .navbar__link--active {
   color: var(--color-body-text);
   font-weight: 700;
-  border-bottom: 2px solid var(--color-btn);
+  border-bottom: 2px solid var(--color-btn); /* línea abajo para marcar que estoy aquí */
   padding-bottom: 2px;
 }
 
 /* =========================================
    MAIN
+   El área central de la página. Con flex
+   centro el contenido vertical y horizontalmente.
    ========================================= */
 .page__main {
-  flex: 1;
+  flex: 1;           /* ocupa todo el espacio disponible entre navbar y footer */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: center;    /* centrado horizontal */
+  justify-content: center; /* centrado vertical */
   padding: 2.5rem 1rem;
 }
 
+/* El título "¡Contáctanos!" */
 .page__title {
   font-size: 1.75rem;
-  font-weight: 400;
+  font-weight: 400; /* no tan grueso, como en el diseño */
   color: var(--color-body-text);
   margin-bottom: 1.5rem;
   text-align: center;
@@ -141,42 +177,47 @@
 }
 
 /* =========================================
-   CONTACT CARD (section)
+   CONTACT CARD
+   La tarjeta blanca con el formulario adentro.
    ========================================= */
 .contact-card {
   background-color: var(--color-bg-card);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-card);
+  border-radius: var(--border-radius-lg); /* esquinas redondeadas */
+  box-shadow: var(--shadow-card);          /* sombra suave alrededor */
   padding: 2rem 2.25rem;
   width: 100%;
-  max-width: 500px;
+  max-width: 500px; /* no se agranda más allá de 500px en pantallas grandes */
 }
 
 /* =========================================
    FORM
+   El formulario adentro de la tarjeta.
+   Los campos se apilan uno debajo del otro.
    ========================================= */
 .contact-card__form {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 1.1rem; /* espacio entre cada campo */
 }
 
 /* =========================================
    FORM FIELD
+   Cada campo individual (label + input juntos).
    ========================================= */
 .form-field {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.3rem; /* pequeño espacio entre el label y el input */
 }
 
+/* El texto encima de cada input (ej: "Nombre completo") */
 .form-field__label {
   font-size: 0.875rem;
   font-weight: 700;
   color: var(--color-body-text);
 }
 
-/* Wrapper: ícono + input en la misma fila */
+/* La cajita que pone el ícono y el input en la misma fila */
 .form-field__input-wrapper {
   display: flex;
   align-items: center;
@@ -187,24 +228,27 @@
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 
+/* Cuando hago clic dentro del wrapper (en el input), cambia el borde y aparece el aura azul */
 .form-field__input-wrapper:focus-within {
   border-color: var(--color-border-focus);
   box-shadow: var(--shadow-focus);
 }
 
+/* El ícono/emoji dentro del input */
 .form-field__icon {
   color: var(--color-icon);
   font-size: 0.9rem;
-  flex-shrink: 0;
+  flex-shrink: 0;        /* no se encoge si hay poco espacio */
   margin-right: 0.5rem;
-  pointer-events: none;
-  user-select: none;
+  pointer-events: none;  /* no se puede hacer clic en él */
+  user-select: none;     /* no se puede seleccionar con el mouse */
 }
 
+/* El input de texto dentro del wrapper */
 .form-field__input {
-  flex: 1;
-  border: none;
-  outline: none;
+  flex: 1;               /* ocupa todo el ancho que quede después del ícono */
+  border: none;          /* quito el borde porque ya lo tiene el wrapper */
+  outline: none;         /* quito el contorno azul del navegador */
   background: transparent;
   padding: 0.5rem 0;
   font-size: 0.9rem;
@@ -212,12 +256,13 @@
   color: var(--color-body-text);
 }
 
+/* El texto de ejemplo dentro del input */
 .form-field__input::placeholder {
   color: var(--color-placeholder);
   font-style: italic;
 }
 
-/* Textarea (sin wrapper de ícono) */
+/* El textarea del campo Mensaje (no tiene ícono, va solo) */
 .form-field__textarea {
   width: 100%;
   border: 1px solid var(--color-border);
@@ -226,17 +271,19 @@
   font-size: 0.9rem;
   font-family: var(--font-sans);
   color: var(--color-body-text);
-  resize: vertical;
+  resize: vertical;  /* el usuario solo puede agrandarlo hacia abajo, no hacia los lados */
   min-height: 140px;
   outline: none;
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 
+/* Texto de ejemplo del textarea */
 .form-field__textarea::placeholder {
   color: var(--color-placeholder);
   font-style: italic;
 }
 
+/* Cuando hago clic en el textarea */
 .form-field__textarea:focus {
   border-color: var(--color-border-focus);
   box-shadow: var(--shadow-focus);
@@ -244,6 +291,7 @@
 
 /* =========================================
    SUBMIT BUTTON
+   El botón "Enviar", ocupa todo el ancho.
    ========================================= */
 .contact-card__btn {
   width: 100%;
@@ -255,22 +303,26 @@
   background-color: var(--color-btn);
   border: none;
   border-radius: var(--border-radius);
-  cursor: pointer;
+  cursor: pointer; /* el mouse se convierte en manita al pasar encima */
   transition: background-color var(--transition), transform var(--transition);
   margin-top: 0.25rem;
   letter-spacing: 0.5px;
 }
 
+/* El botón se oscurece al pasar el mouse */
 .contact-card__btn:hover {
   background-color: var(--color-btn-hover);
 }
 
+/* El botón se encoge un poquito al hacer clic, da sensación de presionar */
 .contact-card__btn:active {
   transform: scale(0.98);
 }
 
 /* =========================================
    FOOTER
+   La barra de abajo con mi info y redes.
+   Info a la izquierda, redes a la derecha.
    ========================================= */
 .footer {
   background-color: var(--color-bg-footer);
@@ -278,35 +330,37 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* en pantallas chicas se acomoda en varias filas */
   gap: 0.75rem;
 }
 
+/* El bloque con mi nombre, rol y copyright */
 .footer__info {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 0.1rem; /* muy poquito espacio entre cada línea */
 }
 
+/* Mi nombre completo */
 .footer__brand {
   font-size: 0.875rem;
   font-weight: 700;
   color: var(--color-body-text);
 }
 
+/* Mi rol (Web Developer...) */
 .footer__role {
   font-size: 0.78rem;
   color: var(--color-label);
 }
 
+/* El texto de copyright */
 .footer__copy {
   font-size: 0.72rem;
   color: var(--color-placeholder);
 }
 
-/* =========================================
-   SOCIAL NAV
-   ========================================= */
+/* La lista de redes sociales */
 .footer__social-list {
   list-style: none;
   display: flex;
@@ -314,6 +368,7 @@
   flex-wrap: wrap;
 }
 
+/* Cada link de red social */
 .footer__social-link {
   font-size: 0.85rem;
   font-weight: 500;
@@ -322,22 +377,28 @@
   transition: color var(--transition);
 }
 
+/* El link se oscurece al pasar el mouse */
 .footer__social-link:hover {
   color: var(--color-body-text);
 }
 
 /* =========================================
-   RESPONSIVE — Tablet (max 768px)
+   RESPONSIVE — Tablet
+   Pantallas de hasta 768px (tablets).
+   Ajusto tamaños para que se vea bien.
    ========================================= */
 @media (max-width: 768px) {
+  /* Menos padding en el navbar */
   .navbar {
     padding: 0.65rem 1.25rem;
   }
 
+  /* El título un poco más chico */
   .page__title {
     font-size: 1.5rem;
   }
 
+  /* La tarjeta ocupa todo el ancho con márgenes laterales */
   .contact-card {
     max-width: 100%;
     margin: 0 1rem;
@@ -345,51 +406,62 @@
 }
 
 /* =========================================
-   RESPONSIVE — Mobile (max 576px)
+   RESPONSIVE — Mobile
+   Pantallas de hasta 576px (celulares).
+   Aquí hago los cambios más grandes.
    ========================================= */
 @media (max-width: 576px) {
+  /* El navbar se apila: logo arriba, links abajo */
   .navbar {
     flex-direction: column;
     align-items: flex-start;
     padding: 0.65rem 1rem;
   }
 
+  /* Los links del navbar se acomodan en fila y hacen wrap si no caben */
   .navbar__list {
     flex-wrap: wrap;
     gap: 0.75rem;
   }
 
+  /* El contenido principal empieza desde arriba, no centrado */
   .page__main {
     padding: 1.5rem 0.75rem;
     justify-content: flex-start;
   }
 
+  /* Título más chico en celular */
   .page__title {
     font-size: 1.35rem;
     margin-bottom: 1rem;
   }
 
+  /* La tarjeta ocupa todo el ancho sin márgenes ni sombra */
   .contact-card {
     padding: 1.25rem 1rem;
     border-radius: var(--border-radius);
-    box-shadow: none;
+    box-shadow: none; /* sin sombra en celular para que no se vea raro */
     margin: 0;
   }
 
+  /* Menos espacio entre campos en celular */
   .contact-card__form {
     gap: 1rem;
   }
 
+  /* Fuente más grande en inputs para evitar que iOS haga zoom automático */
   .form-field__input,
   .form-field__textarea {
     font-size: 1rem;
   }
 
+  /* Botón más alto para que sea fácil de tocar con el dedo */
   .contact-card__btn {
     padding: 0.75rem;
     font-size: 1rem;
   }
 
+  /* El footer se apila en columna */
   .footer {
     flex-direction: column;
     align-items: flex-start;
@@ -397,6 +469,7 @@
     gap: 0.5rem;
   }
 
+  /* Las redes sociales se alinean a la izquierda */
   .footer__social-list {
     justify-content: flex-start;
   }

@@ -1,46 +1,73 @@
 <!DOCTYPE html>
+<!-- Le digo al navegador que esto es HTML5 y que el idioma es español -->
 <html lang="es">
   <head>
+    <!-- El navegador lee el texto como UTF-8, así se ven bien tildes y ñ -->
     <meta charset="UTF-8" />
+    <!-- Esto hace que la página se vea bien en celulares, sin esto se ve chiquitita -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- El color de la barra del navegador en Android se pone gris-azul -->
     <meta name="theme-color" content="#c9d4e0" />
 
-    <!-- FAVICON -->
+    <!-- El iconito que aparece en la pestaña del navegador -->
     <link rel="icon" type="image/png" href="assets/img/favicon.jpeg" />
+    <!-- Lo mismo pero para cuando alguien guarda la página en iPhone -->
     <link rel="apple-touch-icon" href="assets/img/favicon.jpeg" />
 
+    <!-- Conecto mi archivo de estilos CSS -->
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- Lo que aparece en la pestaña del navegador -->
     <title>Contáctanos - Jesús Gabriel Amador</title>
   </head>
   <body class="page">
 
-    <!-- NAVBAR -->
+    <!-- ========== NAVBAR ========== -->
+    <!-- La barra de navegación que se queda pegada arriba al hacer scroll -->
     <header class="navbar">
+
+      <!-- Mi nombre/logo a la izquierda -->
       <div class="navbar__brand">
+        <!-- Emoji de laptop como logo -->
         <span class="navbar__logo">&#128187;</span>
+        <!-- Mi nombre que funciona como link al inicio -->
         <a class="navbar__name" href="#">Bauliere<span class="navbar__dot">.</span></a>
       </div>
+
+      <!-- Los links de navegación a la derecha -->
       <nav class="navbar__nav" aria-label="Navegación principal">
         <ul class="navbar__list">
+          <!-- Solo tengo un link activo: Contacto -->
           <li class="navbar__item">
+            <!-- navbar__link--active le pone el subrayado para marcar en qué página estoy -->
             <a class="navbar__link navbar__link--active" href="#">Contacto</a>
           </li>
         </ul>
       </nav>
     </header>
 
-    <!-- MAIN -->
+    <!-- ========== MAIN ========== -->
+    <!-- Aquí va el contenido principal de la página -->
     <main class="page__main">
+
+      <!-- Título grande de la página -->
       <h1 class="page__title">¡Contáctanos!</h1>
 
+      <!-- La tarjeta blanca que contiene el formulario -->
       <section class="contact-card">
+
+        <!-- El formulario, action="#" es temporal porque no tengo backend aún -->
+        <!-- novalidate = yo controlo las validaciones, no el navegador -->
         <form class="contact-card__form" action="#" method="POST" novalidate>
 
-          <!-- Nombre completo -->
+          <!-- Campo: Nombre completo -->
           <div class="form-field">
+            <!-- La etiqueta del campo, el "for" lo conecta con el input por su id -->
             <label class="form-field__label" for="nombre">Nombre completo</label>
+            <!-- El cajita que agrupa el ícono y el input juntos en una fila -->
             <div class="form-field__input-wrapper">
+              <!-- Emoji de persona como ícono decorativo, aria-hidden lo oculta a lectores de pantalla -->
               <span class="form-field__icon" aria-hidden="true">&#128100;</span>
+              <!-- El input de texto, required = es obligatorio llenarlo -->
               <input
                 class="form-field__input"
                 type="text"
@@ -53,11 +80,13 @@
             </div>
           </div>
 
-          <!-- Correo Electrónico -->
+          <!-- Campo: Correo Electrónico -->
           <div class="form-field">
             <label class="form-field__label" for="correo">Correo Electrónico</label>
             <div class="form-field__input-wrapper">
+              <!-- Emoji de sobre de carta -->
               <span class="form-field__icon" aria-hidden="true">&#9993;</span>
+              <!-- type="email" valida que tenga formato de correo y abre teclado de email en móvil -->
               <input
                 class="form-field__input"
                 type="email"
@@ -70,11 +99,13 @@
             </div>
           </div>
 
-          <!-- Teléfono -->
+          <!-- Campo: Teléfono -->
           <div class="form-field">
             <label class="form-field__label" for="telefono">Teléfono</label>
             <div class="form-field__input-wrapper">
+              <!-- Emoji de teléfono -->
               <span class="form-field__icon" aria-hidden="true">&#128222;</span>
+              <!-- type="tel" abre el teclado numérico en celular -->
               <input
                 class="form-field__input"
                 type="tel"
@@ -86,10 +117,11 @@
             </div>
           </div>
 
-          <!-- Asunto -->
+          <!-- Campo: Asunto -->
           <div class="form-field">
             <label class="form-field__label" for="asunto">Asunto</label>
             <div class="form-field__input-wrapper">
+              <!-- Emoji de lápiz -->
               <span class="form-field__icon" aria-hidden="true">&#9999;</span>
               <input
                 class="form-field__input"
@@ -101,9 +133,10 @@
             </div>
           </div>
 
-          <!-- Mensaje -->
+          <!-- Campo: Mensaje -->
           <div class="form-field">
             <label class="form-field__label" for="mensaje">Mensaje</label>
+            <!-- textarea en vez de input porque necesito varias líneas de texto -->
             <textarea
               class="form-field__textarea"
               id="mensaje"
@@ -113,20 +146,29 @@
             ></textarea>
           </div>
 
+          <!-- Botón para enviar el formulario -->
           <button class="contact-card__btn" type="submit">Enviar</button>
 
         </form>
       </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- ========== FOOTER ========== -->
+    <!-- La barra de abajo con mi info y redes sociales -->
     <footer class="footer">
+
+      <!-- Mi información personal a la izquierda -->
       <div class="footer__info">
+        <!-- Mi nombre completo en negritas -->
         <strong class="footer__brand">Jesús Gabriel Amador Ramírez</strong>
+        <!-- Mi rol/puesto -->
         <small class="footer__role">Web Developer &amp; Software Engineer</small>
+        <!-- El copyright, &copy; es el símbolo © -->
         <small class="footer__copy">&copy; 2026 Bauliere. Todos los derechos reservados.</small>
       </div>
 
+      <!-- Mis redes sociales a la derecha -->
+      <!-- target="_blank" abre en pestaña nueva, rel="noopener noreferrer" es por seguridad -->
       <nav class="footer__social" aria-label="Redes sociales">
         <ul class="footer__social-list">
           <li class="footer__social-item">

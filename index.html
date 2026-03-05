@@ -3,13 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet"  href="assets/css/styles.css" />
-    <title>Contáctanos - 2077 Empresa SA</title>
+    <meta name="theme-color" content="#c9d4e0" />
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="assets/img/favicon.jpeg" />
+    <link rel="apple-touch-icon" href="assets/img/favicon.jpeg" />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <title>Contáctanos - Jesús Gabriel Amador</title>
   </head>
   <body class="page">
 
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="navbar__brand">
+        <span class="navbar__logo">&#128187;</span>
+        <a class="navbar__name" href="#">Bauliere<span class="navbar__dot">.</span></a>
+      </div>
+      <nav class="navbar__nav" aria-label="Navegación principal">
+        <ul class="navbar__list">
+          <li class="navbar__item">
+            <a class="navbar__link navbar__link--active" href="#">Contacto</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
     <main class="page__main">
-      <h1 class="page__title">Contáctanos!</h1>
+      <h1 class="page__title">¡Contáctanos!</h1>
 
       <section class="contact-card">
         <form class="contact-card__form" action="#" method="POST" novalidate>
@@ -90,31 +112,43 @@
               rows="5"
             ></textarea>
           </div>
-<link rel="icon" type="image/png" href="favicon.jpeg" />
+
           <button class="contact-card__btn" type="submit">Enviar</button>
 
         </form>
       </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
-      <small class="footer__brand">2077 Empresa SA</small>
+      <div class="footer__info">
+        <strong class="footer__brand">Jesús Gabriel Amador Ramírez</strong>
+        <small class="footer__role">Web Developer &amp; Software Engineer</small>
+        <small class="footer__copy">&copy; 2026 Bauliere. Todos los derechos reservados.</small>
+      </div>
 
       <nav class="footer__social" aria-label="Redes sociales">
         <ul class="footer__social-list">
           <li class="footer__social-item">
-            <a class="footer__social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              Instagram
+            <a
+              class="footer__social-link"
+              href="https://github.com/Bauliere"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              &#128187; GitHub
             </a>
           </li>
           <li class="footer__social-item">
-            <a class="footer__social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              Facebook
-            </a>
-          </li>
-          <li class="footer__social-item">
-            <a class="footer__social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
-              X
+            <a
+              class="footer__social-link"
+              href="https://www.instagram.com/bauliere_"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              &#128247; Instagram
             </a>
           </li>
         </ul>
